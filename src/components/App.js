@@ -8,8 +8,6 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 
-console.log();
-
 /*
 HTTP Method
 
