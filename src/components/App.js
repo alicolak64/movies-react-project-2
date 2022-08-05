@@ -8,6 +8,8 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 
+console.log();
+
 /*
 HTTP Method
 
@@ -46,7 +48,7 @@ class App extends React.Component {
 
   async componentDidMount() {  // Axios method with real api TMDB Movie   // axios dowload npm i axios
 
-    const baseUrl = "https://api.themoviedb.org/3/movie/popular?api_key=650635a58f208f24ba158f74cbee4dce&language=en-US&page=1";
+    const baseUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=1`;
     const response = await axios.get(baseUrl);
     // console.log(response.data);
     const data = response.data.results;
@@ -54,6 +56,24 @@ class App extends React.Component {
     this.setState({
       movies: data
     });
+  }
+
+  deleteMovie = async (movie) => {   // Axios method 
+    const baseUrl = "http://localhost:3002/movies/" + movie.id;
+    //const baseUrl2 = `http://localhost:3002/movies/${movie.id}`;
+
+    await axios.delete(baseUrl);
+
+    const newMovieList = this.state.movies.filter(
+      m => m.id !== movie.id
+    );
+    // this.setState({     // Use this in first state assign operation
+    //   movies : newMovieList
+    // });
+
+    this.setState(state => ({   // Use this in update state operation
+      movies: newMovieList
+    }));
   }
 
 
@@ -85,7 +105,7 @@ class App extends React.Component {
         </div>
 
         <MovieList
-          movies={filteredMovies}
+          movies = {filteredMovies}
         />
       </div>
     );

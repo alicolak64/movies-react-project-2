@@ -29,7 +29,6 @@ const MovieList = (props) => {    // If a component is a stateless functional co
                                         {movie.release_date}
                                     </span>
                                 </h2>
-
                                 <h2>
                                     <span className="badge bg-info">
                                         {movie.vote_average % 1 === 0 ? movie.vote_average + ".0" : movie.vote_average}
