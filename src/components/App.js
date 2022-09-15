@@ -6,6 +6,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import Footer from './Footer/Footer';
 
 
 /*
@@ -93,6 +94,10 @@ class App extends React.Component {
         <MovieList
           movies={filteredMovies}
         />
+
+        <br />
+        <br />
+        <Footer />
       </div>
     );
   }
