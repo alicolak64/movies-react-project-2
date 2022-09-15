@@ -1,6 +1,7 @@
 {
   "name": "movies-react-project-2",
   "version": "0.1.0",
+  "homepage": "http://alicolak64.github.io/movies-react-project-2/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "dotenv-webpack": "^8.0.0"
+    "dotenv-webpack": "^8.0.0",
+    "gh-pages": "^4.0.0"
   }
 }
