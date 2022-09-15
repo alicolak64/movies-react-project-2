@@ -56,25 +56,6 @@ class App extends React.Component {
     });
   }
 
-  deleteMovie = async (movie) => {   // Axios method 
-    const baseUrl = "http://localhost:3002/movies/" + movie.id;
-    //const baseUrl2 = `http://localhost:3002/movies/${movie.id}`;
-
-    await axios.delete(baseUrl);
-
-    const newMovieList = this.state.movies.filter(
-      m => m.id !== movie.id
-    );
-    // this.setState({     // Use this in first state assign operation
-    //   movies : newMovieList
-    // });
-
-    this.setState(state => ({   // Use this in update state operation
-      movies: newMovieList
-    }));
-  }
-
-
   searchMovie = (event) => {
     // console.log(event.target.value)
     this.setState({
@@ -95,6 +76,13 @@ class App extends React.Component {
         <div className="row">
           <div className="col-lg-12">
             <br />
+            <h1
+              style={{
+                color: "red",
+                fontSize: "50px",
+                fontFamily: "cursive"
+              }}
+            >TMDB Popular 20 Films</h1>
             <br />
             <SearchBar
               searchProp={this.searchMovie}
@@ -103,7 +91,7 @@ class App extends React.Component {
         </div>
 
         <MovieList
-          movies = {filteredMovies}
+          movies={filteredMovies}
         />
       </div>
     );
